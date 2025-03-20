@@ -39,6 +39,7 @@ sequenceDiagram
 ### **2⃣ Database Integration with SQLAlchemy**
 Switched from **in-memory storage** to **persistent database storage**. Used **SQLAlchemy ORM** for database operations. Database supports **SQLite** (development) and **MySQL** (production).
 
+
 #### **📌 Entity-Relationship Diagram**
 ```mermaid
 erDiagram
@@ -50,7 +51,7 @@ erDiagram
         string password
         boolean is_admin
     }
-    
+
     Place {
         string id PK
         string title
@@ -64,7 +65,7 @@ erDiagram
         float longitude
         string owner_id FK
     }
-    
+
     Review {
         string id PK
         string text
@@ -72,23 +73,23 @@ erDiagram
         string user_id FK
         string place_id FK
     }
-    
+
     Amenity {
         string id PK
         string name
     }
-    
+
     Place_Amenity {
         string place_id PK,FK
         string amenity_id PK,FK
     }
-    
+
     User ||--o{ Place : "owns"
     User ||--o{ Review : "writes"
     Place ||--o{ Review : "has"
     Place ||--o{ Place_Amenity : "has"
     Amenity ||--o{ Place_Amenity : "belongs to"
-```
+``` 
 
 ### **3⃣ API Endpoints with Role-Based Access**
 | **Endpoint**            | **Method**   | **Access**         | **Description**                             |
